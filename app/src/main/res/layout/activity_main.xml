@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nirupam.actyv.MainActivity">
+
+    <TextView
+        android:id="@+id/WelcomeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Welcome to ACTYV"
+        android:textSize="29dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/DescTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="An Activity Logger to save your troubles"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WelcomeTV"
+        />
+
+    <TextView
+        android:id="@+id/NewTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="New User ? "
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/DescTV"
+        app:layout_constraintTop_toBottomOf="@+id/DescTV" />
+
+    <EditText
+        android:id="@+id/EmailET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/NewTV"
+        app:layout_constraintTop_toBottomOf="@+id/NewTV" />
+
+    <EditText
+        android:id="@+id/PwdET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/EmailET"
+        app:layout_constraintTop_toBottomOf="@+id/EmailET" />
+
+    <EditText
+        android:id="@+id/RPwdET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Re Enter Pssword"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/PwdET"
+        app:layout_constraintTop_toBottomOf="@+id/PwdET" />
+
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="259dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="SIGN UP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RPwdET"
+        />
+
+    <TextView
+        android:id="@+id/ExUserTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Existing User ? "
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/RPwdET"
+        app:layout_constraintTop_toBottomOf="@+id/signupButton" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:text="LOGIN"
+        app:layout_constraintStart_toEndOf="@+id/ExUserTV"
+        app:layout_constraintTop_toBottomOf="@+id/signupButton"
+        android:layout_marginLeft="40dp" />
+
+
+</android.support.constraint.ConstraintLayout>
+

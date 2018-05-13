@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1035591288151",
+    "firebase_url": "https://actyv-609cb.firebaseio.com",
+    "project_id": "actyv-609cb",
+    "storage_bucket": "actyv-609cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035591288151:android:28b8b25b38578a1a",
+        "android_client_info": {
+          "package_name": "com.example.nirupam.actyv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035591288151-0fk3j6c7lt6vo6cabuiimn9qk4aojse4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuM-5SPw2hUXbdoerEpsqTbaR9tDogwLM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
