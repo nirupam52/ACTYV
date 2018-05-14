@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         //opening the profile activity after logging in
-
+                        finish();
                         startActivity(new Intent(getBaseContext(), ProfileActivity.class));
                     }
                     else{
