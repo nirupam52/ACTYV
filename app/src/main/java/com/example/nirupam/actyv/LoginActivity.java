@@ -1,6 +1,7 @@
 package com.example.nirupam.actyv;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         login_button.setOnClickListener(this);
         signup_button.setOnClickListener(this);
     }
-    //add asynctask here 
+
     public void Login(){
         String email = login_email.getText().toString().trim();
         String pwd = login_password.getText().toString().trim();
@@ -73,14 +74,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
     @Override
     public void onClick(View view) {
-        if(view == login_button){
-            Login();
-           // finish();
-            //startActivity(new Intent(getBaseContext(),ProfileActivity.class));
-        }
-        else if(view == signup_button){
-            finish();;
-            startActivity(new Intent(getBaseContext(),MainActivity.class));
+        //add this in an asynctask
+        new LoginAsync().execute(view);
+
+    }
+
+    private class LoginAsync extends AsyncTask<View,Void,Void>{
+
+
+        @Override
+        protected Void doInBackground(View... views) {
+            View receivedView = views[0];
+            if(receivedView == login_button){
+                Login();
+
+            }
+            else if(receivedView == signup_button){
+                finish();;
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
+            }
+            return null;
         }
     }
 }

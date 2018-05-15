@@ -1,6 +1,7 @@
 package com.example.nirupam.actyv;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -75,9 +76,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
 
                                 }
-                                Intent intent_profile = new Intent(getBaseContext(),ProfileActivity.class);
+
                                 //intent_profile.putExtra("RANDOM_NUMBER", Integer.toString(randNum));
-                                startActivity(intent_profile);
+                                startActivity(new Intent(getBaseContext(),ProfileActivity.class));
                             }
                         });
 
@@ -94,12 +95,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if(view == signUp){
-            registerUser();
-        }
-        else if (view == Login){
-            Intent intent_login = new Intent(getBaseContext(),LoginActivity.class);
-            startActivity(intent_login);
+        //add this in an async task
+        new SignupAsyncTask().execute(view);
+    }
+
+    private class SignupAsyncTask extends AsyncTask<View,Void,Void>{
+
+
+        @Override
+        protected Void doInBackground(View... views) {
+            View receviedView = views[0];
+            if(receviedView == signUp){
+                registerUser();
+            }
+            else if (receviedView == Login){
+                Intent intent_login = new Intent(getBaseContext(),LoginActivity.class);
+                startActivity(intent_login);
+            }
+
+
+            return null;
         }
     }
 }

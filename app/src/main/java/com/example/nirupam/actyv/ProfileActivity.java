@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView welcome;
@@ -32,11 +33,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         welcome = (TextView) findViewById(R.id.welcTV);
         button = (Button) findViewById(R.id.logout_button);
         button.setOnClickListener(this);
-        // FirebaseUser user = firebaseAuth.getCurrentUser();
+         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         //set welcome to the testVar
 
-        welcome.setText("Welcome user  "  );
+        welcome.setText("Welcome user  " + user.getEmail()  );
     }
 
     @Override
