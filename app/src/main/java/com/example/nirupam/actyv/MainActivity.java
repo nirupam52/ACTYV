@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signUp.setOnClickListener(this);
         Login.setOnClickListener(this);
 
+        Notifications.notificationReminder(MainActivity.this);
+
     }
 
     public void registerUser(){
