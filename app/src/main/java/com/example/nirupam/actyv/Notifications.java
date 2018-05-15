@@ -1,3 +1,5 @@
+package com.example.nirupam.actyv;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -33,9 +35,10 @@ public class Notifications {
                     NotificationManager.IMPORTANCE_DEFAULT);
             notificationManager.createNotificationChannel(mChannel);
         }
+        NotificationCompat.Builder(context,ACTIVITY_UPDATE_NOTIFICATION_CHANNEL_ID);
 
 
     }
 
-    NotificationCompat.Builder(context, ACTIVITY_UPDATE_NOTIFICATION_CHANNEL_ID);
+
 }
