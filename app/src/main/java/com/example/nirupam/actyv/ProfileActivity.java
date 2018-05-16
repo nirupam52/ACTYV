@@ -17,10 +17,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView welcome;
-    //    private String testVar = getIntent().getStringExtra("RANDOM_NUMBER");
+
     private FirebaseAuth firebaseAuth;
     private Button button;
-    private Button notificationButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +34,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         welcome = (TextView) findViewById(R.id.welcTV);
         button = (Button) findViewById(R.id.logout_button);
-        notificationButton = (Button) findViewById(R.id.notification_button);
-        notificationButton.setOnClickListener(this);
+
         button.setOnClickListener(this);
          FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        //set welcome to the testVar
+
 
         welcome.setText("Welcome user  " + user.getEmail()  );
+        NotificationScheduler.scheduleNotifications(this);
     }
 
     @Override
@@ -71,10 +71,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             finish();
             startActivity(new Intent(this,LoginActivity.class));
         }
-        else if (view == notificationButton){
 
-            Notifications.notificationReminder(this);
-        }
 
     }
 }

@@ -46,6 +46,8 @@ public class Notifications {
                 .setContentText("Got anything to add bruh ?")
                 .setContentIntent(contentIntent(context));
 
+        //add an enter activity action and dismiss action 
+
         notificationManager.notify(ACTIVITY_UPDATE__PENDING_INTENT_ID,notificationBuilder.build());
 
 

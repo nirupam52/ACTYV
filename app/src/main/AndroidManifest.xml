@@ -21,6 +21,12 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileActivity" />
 
+        <service android:name=".ActivityNotificationJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
 
     </application>
 
