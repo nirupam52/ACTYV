@@ -1,5 +1,6 @@
 package com.example.nirupam.actyv;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //    private String testVar = getIntent().getStringExtra("RANDOM_NUMBER");
     private FirebaseAuth firebaseAuth;
     private Button button;
+    private Button notificationButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         welcome = (TextView) findViewById(R.id.welcTV);
         button = (Button) findViewById(R.id.logout_button);
+        notificationButton = (Button) findViewById(R.id.notification_button);
+        notificationButton.setOnClickListener(this);
         button.setOnClickListener(this);
          FirebaseUser user = firebaseAuth.getCurrentUser();
 
@@ -66,6 +70,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this,LoginActivity.class));
+        }
+        else if (view == notificationButton){
+
+            Notifications.notificationReminder(this);
         }
 
     }
