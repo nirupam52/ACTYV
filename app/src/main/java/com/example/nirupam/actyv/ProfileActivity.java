@@ -2,6 +2,7 @@ package com.example.nirupam.actyv;
 
 import android.app.Notification;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,12 +15,15 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView welcome;
 
     private FirebaseAuth firebaseAuth;
     private Button button;
+    private FloatingActionButton fab_act;
+
 
 
     @Override
@@ -34,8 +38,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         welcome = (TextView) findViewById(R.id.welcTV);
         button = (Button) findViewById(R.id.logout_button);
+        fab_act = (FloatingActionButton) findViewById(R.id.add_act_fab);
 
         button.setOnClickListener(this);
+        fab_act.setOnClickListener(this);
+
          FirebaseUser user = firebaseAuth.getCurrentUser();
 
 
@@ -71,7 +78,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             finish();
             startActivity(new Intent(this,LoginActivity.class));
         }
-
+        else if(view == fab_act){
+            startActivity(new Intent(this, AddActivity.class));
+        }
 
     }
 }

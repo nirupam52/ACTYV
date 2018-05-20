@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firebaseAuth = FirebaseAuth.getInstance();
         //checking for existing login
         if(firebaseAuth.getCurrentUser() != null){
+            finish();
             startActivity(new Intent(this,ProfileActivity.class));
         }
         email = ((EditText) findViewById(R.id.EmailET));
