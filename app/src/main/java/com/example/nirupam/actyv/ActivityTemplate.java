@@ -2,7 +2,7 @@ package com.example.nirupam.actyv;
 
 public class ActivityTemplate {
 
-    String activity;
+   public String activity;
     String id;
     String timestamp;
     ActivityTemplate(){
@@ -16,5 +16,11 @@ public class ActivityTemplate {
 
     }
 
+    public String getActivity() {
+        return activity;
+    }
 
+    public String getTimestamp() {
+        return timestamp;
+    }
 }

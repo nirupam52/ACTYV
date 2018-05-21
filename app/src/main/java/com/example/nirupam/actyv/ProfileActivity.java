@@ -23,6 +23,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth firebaseAuth;
     private Button button;
     private FloatingActionButton fab_act;
+    private Button view_act;
 
 
 
@@ -39,9 +40,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         welcome = (TextView) findViewById(R.id.welcTV);
         button = (Button) findViewById(R.id.logout_button);
         fab_act = (FloatingActionButton) findViewById(R.id.add_act_fab);
+        view_act = (Button) findViewById(R.id.view_act);
 
         button.setOnClickListener(this);
         fab_act.setOnClickListener(this);
+        view_act.setOnClickListener(this);
 
          FirebaseUser user = firebaseAuth.getCurrentUser();
 
@@ -80,6 +83,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         else if(view == fab_act){
             startActivity(new Intent(this, AddActivity.class));
+        }
+
+        else if(view == view_act){
+            startActivity(new Intent(this, ViewActivity.class));
         }
 
     }

@@ -68,5 +68,6 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         if(view == activitySubmit){
             addActivity();
         }
+
     }
 }
