@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -44,10 +45,17 @@ public class ViewActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         FirebaseRecyclerAdapter<ActivityTemplate, ActivityViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<ActivityTemplate, ActivityViewHolder>
-                (ActivityTemplate.class, layout.activity_card_view,ActivityViewHolder.class,databaseReference) {
+                (ActivityTemplate.class, layout.activity_view,ActivityViewHolder.class,databaseReference) {
+            @Override
+            public ActivityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(layout.activity_card_view, parent, false);
+                return new ActivityViewHolder(view);
+            }
+            //when each viewHolder is created, inflate each holder as a activity_card_view
+
             @Override
             protected void populateViewHolder(ActivityViewHolder viewHolder, ActivityTemplate model, int position) {
-                viewHolder.setTimestamp(model.getTimestamp());
+                viewHolder.setTimestamp(model.getFormattedTimestamp());
                 viewHolder.setContent(model.getActivity());
 
             }
@@ -58,6 +66,9 @@ public class ViewActivity extends AppCompatActivity {
 
     public static class ActivityViewHolder extends RecyclerView.ViewHolder{
 
+        //@Override
+        // public ActivityViewHolder onActivityViewHolder()
+
         View view;
         public ActivityViewHolder(View itemView){
             super(itemView);
@@ -66,6 +77,7 @@ public class ViewActivity extends AppCompatActivity {
 
         public void setTimestamp(String timestamp){
             TextView activity_timetsamp  = (TextView)view.findViewById(id.act_timestamp);
+
             activity_timetsamp.setText(timestamp);
         }
 
@@ -73,6 +85,7 @@ public class ViewActivity extends AppCompatActivity {
             TextView activity_content = (TextView)view.findViewById(id.act_content);
             activity_content.setText(content);
         }
+
     }
 
 
