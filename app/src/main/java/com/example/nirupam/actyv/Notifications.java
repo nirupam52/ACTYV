@@ -41,7 +41,7 @@ public class Notifications {
         }
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context,ACTIVITY_UPDATE_NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle("ACTYV")
                 .setAutoCancel(true)
                 .setPriority(notificationManager.IMPORTANCE_HIGH)

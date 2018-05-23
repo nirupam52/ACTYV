@@ -24,7 +24,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView welcome;
 
     private FirebaseAuth firebaseAuth;
-    private Button button;
     private FloatingActionButton fab_act;
     private Button view_act;
 
@@ -41,17 +40,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(this,LoginActivity.class));
         }
         welcome = (TextView) findViewById(R.id.welcTV);
-        button = (Button) findViewById(R.id.logout_button);
         fab_act = (FloatingActionButton) findViewById(R.id.add_act_fab);
         view_act = (Button) findViewById(R.id.view_act);
 
-        button.setOnClickListener(this);
         fab_act.setOnClickListener(this);
         view_act.setOnClickListener(this);
 
          FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        NotificationScheduler.scheduleNotifications(this);
+
 
         welcome.setText("Welcome user  " + user.getEmail()  );
         sharedPrefSettings();
@@ -83,6 +80,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater menuInflater = getMenuInflater();
@@ -98,6 +96,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.menu_settings:
                 startActivity(new Intent(getBaseContext(),SettingsActivity.class));
                 return true;
+
+            case R.id.menu_logout:
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(this,LoginActivity.class));
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -106,12 +110,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        if(view == button){
-            firebaseAuth.signOut();
-            finish();
-            startActivity(new Intent(this,LoginActivity.class));
-        }
-        else if(view == fab_act){
+
+         if(view == fab_act){
             startActivity(new Intent(this, AddActivity.class));
         }
 

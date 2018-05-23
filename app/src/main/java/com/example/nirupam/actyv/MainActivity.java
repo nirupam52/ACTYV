@@ -1,5 +1,6 @@
 package com.example.nirupam.actyv;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -17,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Random;
+
+//                              THIS IS THE SIGN UP ACTIVITY
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
     private EditText email;
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //checking for existing login
         if(firebaseAuth.getCurrentUser() != null){
             finish();
-            startActivity(new Intent(this,ProfileActivity.class));
+            startActivity(new Intent(this,ViewActivity.class));
         }
         email = ((EditText) findViewById(R.id.EmailET));
         pwd1 = (EditText) findViewById(R.id.PwdET);
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 if(task.isSuccessful()) {
                                     Toast.makeText(MainActivity.this, "SIGN UP COMPLETE !", Toast.LENGTH_LONG).show();
                                     finish();
-                                    startActivity(new Intent(getBaseContext(),ProfileActivity.class));
+                                    startActivity(new Intent(getBaseContext(),ViewActivity.class));
                                     //@Todo implement sending a hash code with each user sign in and verify with existing code for xtra security.
                                 }
                                 else{

@@ -9,6 +9,7 @@ public class ActivityTemplate {
    public String activity;
     String id;
     String timestamp;
+
     ActivityTemplate(){
 
     }
