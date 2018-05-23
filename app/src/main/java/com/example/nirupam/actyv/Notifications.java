@@ -16,6 +16,8 @@ import com.example.nirupam.actyv.ProfileActivity;
  * Created by Nirupam on 15-05-2018.
  */
 
+//building the actual notifications
+
 public class Notifications {
 
     private static final int ACTIVITY_UPDATE__PENDING_INTENT_ID = 6666;

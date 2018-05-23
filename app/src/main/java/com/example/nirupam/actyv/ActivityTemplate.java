@@ -29,7 +29,7 @@ public class ActivityTemplate {
     }
 
     public String getFormattedTimestamp() {
-        return (new SimpleDateFormat("dd-MM-yyyy    HH:mm").format(Long.valueOf(timestamp)));
+        return (new SimpleDateFormat("dd-MM-yyyy    HH:mm").format(Long.valueOf(timestamp)*1000));
         //convert timestamp to long, and format date from the long value
     }
 }

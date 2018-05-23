@@ -2,6 +2,9 @@ package com.example.nirupam.actyv;
 
 import android.app.Notification;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private TextView welcome;
 
     private FirebaseAuth firebaseAuth;
@@ -48,10 +51,36 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
          FirebaseUser user = firebaseAuth.getCurrentUser();
 
-
+        NotificationScheduler.scheduleNotifications(this);
 
         welcome.setText("Welcome user  " + user.getEmail()  );
-        NotificationScheduler.scheduleNotifications(this);
+        sharedPrefSettings();
+
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    //something seems to be going horribly wrong down here !!
+    /*
+    private void notificationToggle(Boolean bool){
+        if(bool == true){
+            NotificationScheduler.scheduleNotifications(this);
+        }
+        else return;
+    }
+    */
+
+    private void sharedPrefSettings(){
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        //notificationToggle(sharedPreferences.getBoolean("show_notifications",true));
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -61,12 +90,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
 
             case R.id.menu_settings:
-                Toast.makeText(this, "this should launch settings", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getBaseContext(),SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -90,4 +120,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
+    //there's something fish here too
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        /*
+        if(s.equals("show_notifications")){
+            notificationToggle(sharedPreferences.getBoolean(s,true));
+        }
+        */
+    }
+
 }
