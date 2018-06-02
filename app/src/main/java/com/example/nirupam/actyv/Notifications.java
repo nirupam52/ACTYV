@@ -16,6 +16,8 @@ import com.example.nirupam.actyv.ProfileActivity;
  * Created by Nirupam on 15-05-2018.
  */
 
+//building the actual notifications
+
 public class Notifications {
 
     private static final int ACTIVITY_UPDATE__PENDING_INTENT_ID = 6666;
@@ -39,7 +41,7 @@ public class Notifications {
         }
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context,ACTIVITY_UPDATE_NOTIFICATION_CHANNEL_ID)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle("ACTYV")
                 .setAutoCancel(true)
                 .setPriority(notificationManager.IMPORTANCE_HIGH)

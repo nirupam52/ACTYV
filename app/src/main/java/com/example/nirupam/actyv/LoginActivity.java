@@ -1,5 +1,6 @@
 package com.example.nirupam.actyv;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -33,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         firebaseAuth = FirebaseAuth.getInstance();
         //checking for existing login. if yes then directly opens profile
         if(firebaseAuth.getCurrentUser() != null){
-            startActivity(new Intent(this, ProfileActivity.class));
+            startActivity(new Intent(this, ViewActivity.class));
 
         }
 
@@ -60,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if(task.isSuccessful()){
                         //opening the profile activity after logging in
                         finish();
-                        startActivity(new Intent(getBaseContext(), ProfileActivity.class));
+                        startActivity(new Intent(getBaseContext(), ViewActivity.class));
                     }
                     else{
                         Toast.makeText(LoginActivity.this, "error", Toast.LENGTH_SHORT).show();

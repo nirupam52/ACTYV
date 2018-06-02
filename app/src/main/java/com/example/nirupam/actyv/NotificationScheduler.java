@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 public class NotificationScheduler {
 
-    private static final int WINDOW_START = 1*60*60*2; //2 hours. yes i'm  an idiot.
-    private static final int WINDOW_END = WINDOW_START*2;
+    private static final int WINDOW_START = 0; //2 hours. yes i'm  an idiot.
+    private static final int WINDOW_END = 2*60*60;
 
     private static final String NOTIFICATION_JOB_TAG = "notification-scheduler-tag";
 
@@ -38,6 +38,7 @@ public class NotificationScheduler {
                 .build();
 
         jobDispatcher.schedule(activityUpdateJob);
+
         sInitialized = true;
 
     }

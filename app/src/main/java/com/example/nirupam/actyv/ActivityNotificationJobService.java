@@ -10,7 +10,7 @@ import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 import com.firebase.jobdispatcher.RetryStrategy;
 
-//creating a job service to perform the task in the background using asyntask
+//creating a job service to perform the task in the background using asynctask
 
 public class ActivityNotificationJobService extends JobService {
     private AsyncTask backgrounTask;
