@@ -26,11 +26,9 @@
 
         <TextView
             android:id="@+id/act_timestamp"
-            android:layout_width="338dp"
-            android:layout_height="29dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
@@ -41,12 +39,10 @@
 
         <TextView
             android:id="@+id/act_content"
-            android:layout_width="337dp"
-            android:layout_height="109dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,13 +51,11 @@
 
         <View
             android:id="@+id/divider"
-            android:layout_width="352dp"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/darker_gray"
             app:layout_constraintBottom_toTopOf="@+id/act_content"
@@ -72,30 +66,30 @@
 
         <ImageButton
             android:id="@+id/imageButton_delete"
-            android:layout_width="17dp"
-            android:layout_height="23dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:background="@android:color/white"
             android:clickable="true"
-            android:src=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageButton_update"
             app:srcCompat="@drawable/ic_delete_black_24dp" />
 
         <ImageButton
             android:id="@+id/imageButton_update"
-            android:layout_width="24dp"
-            android:layout_height="23dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:src=""
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="8dp"
             android:background="@android:color/white"
             android:clickable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageButton_delete"
+            app:layout_constraintTop_toBottomOf="@+id/act_content"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/ic_edit_black_24dp" />
 
     </android.support.constraint.ConstraintLayout>
